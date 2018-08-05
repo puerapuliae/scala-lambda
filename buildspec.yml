@@ -1,7 +1,7 @@
 version: 0.1
 environment_variables:
     plaintext:
-        "S3_BUCKET": "serverless-app-375376566329-us-east-1-scala-lambda"
+        "S3_BUCKET": ""
 phases:
   build:
     commands:
