@@ -7,7 +7,7 @@ Resources:
     Properties:
       Handler: net.puerapuliae.lambda.Lambda
       Runtime: java8
-      CodeUri: /lambda-demo-assembly-1.0.jar
+      CodeUri: target/scala-2.12/lambda-demo-assembly-1.0.jar
       MemorySize: 512
       Timeout: 30
       Events:
