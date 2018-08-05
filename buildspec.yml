@@ -12,7 +12,7 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
-      - aws cloudformation package --template-file serverless.yaml --s3-bucket $S3_BUCKET --output-template-file serverless-output.yaml
+      - aws cloudformation package --debug --template-file serverless.yaml --s3-bucket $S3_BUCKET --output-template-file serverless-output.yaml
 artifacts:
   type: zip
   files:
