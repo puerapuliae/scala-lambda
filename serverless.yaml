@@ -1,0 +1,18 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Resources:
+  helloworld:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: net.puerapuliae.lambda.Lambda
+      Runtime: java8
+      CodeUri: /lambda-demo-assembly-1.0.jar
+      MemorySize: 512
+      Timeout: 30
+      Events:
+        helloworldApi:
+          Type: Api
+          Properties:
+            Path: /hello-world
+            Method: POST

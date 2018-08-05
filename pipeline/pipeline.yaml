@@ -11,11 +11,11 @@ Parameters:
   SAMInputFile:
     Type: String
     Description: The filename for the SAM file.
-    Default: saml.yaml
+    Default: serverless.yaml
   SAMOutputFile:
     Type: String
     Description: The filename for the output SAM file from the buildspec file.
-    Default: post-saml.yaml
+    Default: serverless-output.yaml
   StagingFile:
     Type: String
     Description: The cloudformation staging file. Leave empty if no staging file is needed.

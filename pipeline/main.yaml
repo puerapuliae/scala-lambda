@@ -11,11 +11,11 @@ Parameters:
   SAMInputFile:
     Type: String
     Description: The filename for the SAM file.
-    Default: saml.yaml
+    Default: serverless.yaml
   SAMOutputFile:
     Type: String
     Description: The filename for the output SAM file from the buildspec file.
-    Default: post-saml.yaml
+    Default: serverless-output.yaml
   CodeBuildImage:
     Type: String
     Default: "7oas7er/sbt-aws-shell"
