@@ -2,21 +2,19 @@ version: 0.1
 environment_variables:
     plaintext:
         "S3_BUCKET": ""
-containers:
-    LambdaFunctions:
-      phases:
-        build:
-          commands:
-            - echo Build started on `date`
-            - echo Run the test and package the code...
-            - sbt compile
-            - sbt assembly
-        post_build:
-          commands:
-            - echo Build completed on `date`
-            - aws cloudformation package --template-file serverless.yaml --s3-bucket $S3_BUCKET --output-template-file serverless-output.yaml
-      artifacts:
-        type: zip
-        files:
-          - target/scala-2.12/lambda-demo-assembly-1.0.jar
-          - NewSamTemplate.yaml
+phases:
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Run the test and package the code...
+      - sbt compile
+      - sbt assembly
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - aws cloudformation package --template-file serverless.yaml --s3-bucket $S3_BUCKET --output-template-file serverless-output.yaml
+  artifacts:
+    type: zip
+    files:
+      - target/scala-2.12/lambda-demo-assembly-1.0.jar
+      - serverless-output.yaml

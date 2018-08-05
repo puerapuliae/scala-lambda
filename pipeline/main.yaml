@@ -16,6 +16,10 @@ Parameters:
     Type: String
     Description: The filename for the output SAM file from the buildspec file.
     Default: serverless-output.yaml
+  StagingFile:
+    Type: String
+    Description: The cloudformation staging file. Leave empty if no staging file is needed.
+    Default: beta.json
   CodeBuildImage:
     Type: String
     Default: "7oas7er/sbt-aws-shell"
@@ -40,7 +44,7 @@ Resources:
     Properties:
       Parameters:
         AppName: !Ref AppName
-      TemplateURL: "pipeline-roles.yaml"
+      TemplateURL: "https://s3.amazonaws.com/scala-lambda-cloudformation-nested-stacks/pipeline-roles.yaml"
   ServerlessPipeline:
     Type: "AWS::CloudFormation::Stack"
     DependsOn: [ServerlessRoles]
@@ -58,4 +62,4 @@ Resources:
         CodePipelineRole: !GetAtt ServerlessRoles.Outputs.CodePipelineRole
         CloudformationRole: !GetAtt ServerlessRoles.Outputs.CloudformationDeployRole
         CodeBuildRole: !GetAtt ServerlessRoles.Outputs.CodeBuildRole
-      TemplateURL: "pipeline.yaml"
+      TemplateURL: "https://s3.amazonaws.com/scala-lambda-cloudformation-nested-stacks/pipeline.yaml"
