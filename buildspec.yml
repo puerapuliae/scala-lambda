@@ -18,3 +18,4 @@ artifacts:
   files:
     - target/scala-2.12/lambda-demo-assembly-1.0.jar
     - serverless-output.yaml
+    - beta.json
