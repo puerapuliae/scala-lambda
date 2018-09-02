@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  helloworld:
+    Properties:
+      CodeUri: s3://serverless-app-375376566329-us-east-1-scala-lambda/4c12d0447e6531028464fe75af2d5ae2
+      Events:
+        helloworldApi:
+          Properties:
+            Method: POST
+            Path: /hello-world
+          Type: Api
+      Handler: net.puerapuliae.lambda.Lambda
+      MemorySize: 512
+      Runtime: java8
+      Timeout: 30
+    Type: AWS::Serverless::Function
+Transform: AWS::Serverless-2016-10-31
