@@ -18,9 +18,9 @@ case class Response(
 
 class Lambda extends RequestStreamHandler {
   def handleRequest(is: InputStream, os: OutputStream, context: Context): Unit = {
-    implicit val codec: JsonValueCodec[Request] = JsonCodecMaker.make[Request](CodecMakerConfig())
+    implicit val codec: JsonValueCodec[Response] = JsonCodecMaker.make[Response](CodecMakerConfig())
 
-    val request = Request("Hallo")
-    writeToStream(request, os, WriterConfig())
+    val response = Response(body = "Hallo")
+    writeToStream(response, os, WriterConfig())
   }
 }
