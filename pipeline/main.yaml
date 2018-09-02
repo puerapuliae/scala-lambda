@@ -49,7 +49,6 @@ Resources:
         AppName: !Ref AppName
         SAMInputFile: !Ref SAMInputFile
         SAMOutputFile: !Ref SAMOutputFile
-        StagingFile: !Ref StagingFile
         CodeBuildImage: !Ref CodeBuildImage
         GitHubRepoName: !Ref GitHubRepoName
         GitHubRepoBranch: !Ref GitHubRepoBranch

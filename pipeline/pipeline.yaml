@@ -43,10 +43,6 @@ Parameters:
   CodeBuildRole:
     Type: String
     Description: Role for code build
-Conditions:
-  HasStagingVariables:
-    !Not
-      - !Equals [!Ref StagingFile, ""]
 Resources:
   CodeBuildProject:
     DependsOn: [S3Bucket]
@@ -155,7 +151,6 @@ Resources:
             ChangeSetName: pipeline-changeset
             Capabilities: CAPABILITY_NAMED_IAM
             TemplatePath: !Sub "${AppName}-BuildArtifact::${SAMOutputFile}"
-            TemplateConfiguration: !If [ HasStagingVariables, !Sub "${AppName}-BuildArtifact::${StagingFile}", "" ]
           RunOrder: 1
         - Name: execute-changeset
           InputArtifacts: []
