@@ -16,10 +16,6 @@ Parameters:
     Type: String
     Description: The filename for the output SAM file from the buildspec file.
     Default: serverless-output.yaml
-  StagingFile:
-    Type: String
-    Description: The cloudformation staging file. Leave empty if no staging file is needed.
-    Default: beta.json
   CodeBuildImage:
     Type: String
     Default: "7oas7er/sbt-aws-shell"
